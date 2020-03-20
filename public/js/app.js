@@ -1931,7 +1931,7 @@ __webpack_require__.r(__webpack_exports__);
           var jsonData = JSON.parse(this.responseText);
           console.log(this.responseText); //compData.users = jsonData.users; all ready an array
 
-          compData.users = jsonData;
+          compData.users = JSON.parse(jsonData);
           console.log(compData.users);
         }
       };

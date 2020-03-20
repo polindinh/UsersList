@@ -16,19 +16,18 @@
             getUsers: function(){
                 let compData = this;
                 let ajax = new XMLHttpRequest;
-                ajax.onreadystatechange = (function(){
+                ajax.onreadystatechange = function(){
                     if(ajax.status == 200 && ajax.readyState == 4){
                         let jsonData = JSON.parse(this.responseText);
                         console.log(this.responseText);
                         //compData.users = jsonData.users; all ready an array
-                        compData.users = jsonData;
+                        compData.users = JSON.parse(jsonData);
                         console.log(compData.users);
-
                     }
-                });
+                };
                 ajax.open('GET','/get-users', true);
                 ajax.send();
-            }
+            },
         },
 
     }
